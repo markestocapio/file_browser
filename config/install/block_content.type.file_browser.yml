@@ -1,0 +1,8 @@
+uuid: 6b7f8075-f496-4d16-a800-d968483f283c
+langcode: en
+status: true
+dependencies: {  }
+id: file_browser
+label: 'File Browser'
+revision: 1
+description: 'An example Custom Block type that uses File Browser''s Entity Browser and EntityReferenceImageFormatter.'

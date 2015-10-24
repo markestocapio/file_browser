@@ -1,0 +1,32 @@
+<?php
+/**
+ * @file Contains logic for file_browser.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_help().
+ */
+function file_browser_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the file_browser module.
+    case 'help.page.file_browser':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Provides an entity browser for files.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function file_browser_form_alter(&$form, FormStateInterface &$form_state) {
+  if (isset($form['#form_id']) && $form['#form_id'] == 'entity_browser_browse_files_form') {
+    $form['#attached']['library'][] = 'file_browser/view';
+  }
+}

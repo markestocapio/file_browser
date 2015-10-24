@@ -1,0 +1,11 @@
+name: File Browser
+description: 'Provides a default Entity Browser for files, using Masonry and Imagesloaded.'
+type: module
+core: 8.x
+dependencies:
+  - entity_browser
+  - views
+  - field
+  - file
+  - node
+  - entity_reference
