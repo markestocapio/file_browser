@@ -32,7 +32,9 @@ widgets:
   735d146c-a4b2-4327-a057-d109e0905e05:
     settings:
       upload_location: 'public://'
+      dropzone_description: 'Drop files here to upload them'
+      extensions: 'jpg jpeg gif png txt doc xls pdf ppt pps odt ods odp'
     uuid: 735d146c-a4b2-4327-a057-d109e0905e05
     weight: 0
     label: 'Upload files'
-    id: upload
+    id: dropzonejs

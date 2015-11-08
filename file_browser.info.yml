@@ -9,3 +9,5 @@ dependencies:
   - file
   - node
   - entity_reference
+  - dropzonejs
+  - dropzonejs_eb_widget
