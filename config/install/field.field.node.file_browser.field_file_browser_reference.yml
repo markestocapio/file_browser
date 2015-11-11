@@ -1,0 +1,21 @@
+uuid: 336b7c2d-000a-4def-be1d-294919cb0107
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_file_browser_reference
+    - node.type.file_browser
+id: node.file_browser.field_file_browser_reference
+field_name: field_file_browser_reference
+entity_type: node
+bundle: file_browser
+label: 'File Browser Reference'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: entity_reference

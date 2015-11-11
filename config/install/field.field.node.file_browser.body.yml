@@ -1,0 +1,22 @@
+uuid: 2ef4a212-6e12-4018-aa37-55179d92de45
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.file_browser
+  module:
+    - text
+id: node.file_browser.body
+field_name: body
+entity_type: node
+bundle: file_browser
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

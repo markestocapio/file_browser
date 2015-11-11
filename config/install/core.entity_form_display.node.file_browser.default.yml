@@ -1,0 +1,71 @@
+uuid: 1be9bbeb-fdb6-4c8f-ba07-7a485e8cf4f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.file_browser.body
+    - field.field.node.file_browser.field_file_browser_reference
+    - node.type.file_browser
+  module:
+    - entity_browser
+    - path
+    - text
+id: node.file_browser.default
+targetEntityType: node
+bundle: file_browser
+mode: default
+content:
+  body:
+    weight: 26
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea_with_summary
+  created:
+    type: datetime_timestamp
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+  field_file_browser_reference:
+    weight: 7
+    settings:
+      entity_browser: browse_files
+      field_widget_display: label
+      field_widget_display_settings: {  }
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+  path:
+    type: path
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 3
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

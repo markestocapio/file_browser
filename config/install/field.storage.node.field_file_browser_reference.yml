@@ -1,0 +1,20 @@
+uuid: 3fea13a3-7bd8-4c7b-b606-6b6a8c109afa
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - node
+id: node.field_file_browser_reference
+field_name: field_file_browser_reference
+entity_type: node
+type: entity_reference
+settings:
+  target_type: file
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
