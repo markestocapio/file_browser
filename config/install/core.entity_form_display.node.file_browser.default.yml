@@ -33,7 +33,8 @@ content:
     settings:
       entity_browser: browse_files
       field_widget_display: label
-      field_widget_display_settings: {  }
+      field_widget_display_settings:
+        image_style: medium
     third_party_settings: {  }
     type: entity_browser_entity_reference
   path:
