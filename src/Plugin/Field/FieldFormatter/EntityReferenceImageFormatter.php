@@ -108,8 +108,8 @@ class EntityReferenceImageFormatter extends EntityReferenceEntityFormatter {
       if ($image->isValid()) {
         // Fake an ImageItem object as we're not using that field type
         $item = new \stdClass();
-        $item->width = $image->getHeight();
-        $item->height = $image->getWidth();
+        $item->width = $image->getWidth();
+        $item->height = $image->getHeight();
         $item->alt = '';
         $item->title = $file->getFilename();
         $item->entity = $file;
