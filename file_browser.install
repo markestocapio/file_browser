@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Defines library requirements for File Browser.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function file_browser_requirements($phase) {
+
+  $requirements = [];
+
+  if (!file_exists(DRUPAL_ROOT . '/libraries/imagesloaded/imagesloaded.pkgd.min.js')) {
+    $requirements['imagesloaded'] = array(
+      'title' => t('imagesLoaded library missing'),
+      'description' => t(
+'File Browser requires the imagesLoaded library. Download the newest release
+from https://github.com/desandro/imagesloaded releases and place it in /libraries'
+      ),
+      'severity' => REQUIREMENT_ERROR,
+    );
+  }
+
+  if (!file_exists(DRUPAL_ROOT . '/libraries/masonry/dist/masonry.pkgd.min.js')) {
+    $requirements['masonry'] = array(
+      'title' => t('Dropzone library missing'),
+      'description' => t(
+'File Browser requires the Masonry library. Download the newest release from
+https://github.com/desandro/masonry/releases and place it in /libraries'
+      ),
+      'severity' => REQUIREMENT_ERROR,
+    );
+  }
+
+  return $requirements;
+}

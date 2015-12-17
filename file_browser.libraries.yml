@@ -19,7 +19,7 @@ imagesloaded:
     url: https://github.com/desandro/imagesloaded/
     gpl-compatible: true
   js:
-    bower_components/imagesloaded/imagesloaded.pkgd.min.js: { minified: true }
+    /libraries/imagesloaded/imagesloaded.pkgd.min.js: { minified: true }
   dependencies:
     - core/jquery
 
@@ -31,6 +31,6 @@ masonry:
     url: https://github.com/desandro/masonry/
     gpl-compatible: true
   js:
-    bower_components/masonry/dist/masonry.pkgd.min.js: { minified: true }
+    /libraries/masonry/dist/masonry.pkgd.min.js: { minified: true }
   dependencies:
     - core/jquery
