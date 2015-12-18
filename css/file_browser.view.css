@@ -68,3 +68,27 @@
 .grid-item-info-right {
   float: right;
 }
+
+/* Remove border above tabs. */
+.entity-browser-browse-files-form .is-collapse-enabled .tabs:before, .entity-browser-browse-files-form .is-horizontal .tabs:before {
+  background-color: transparent;
+}
+
+/* Float submit button over browser. */
+.file-browser-actions {
+  position: fixed;
+  bottom: 0;
+  background: white;
+  height: 30px;
+  width: 100%;
+  padding: 10px 0 10px 0;
+}
+
+.entity-browser-browse-files-form {
+  padding-bottom: 50px;
+}
+
+/* The filter submit button should not be inline. */
+input[type="submit"][name="filter"] {
+  display: block;
+}

@@ -26,7 +26,19 @@ function file_browser_help($route_name, RouteMatchInterface $route_match) {
  * Implements hook_form_alter().
  */
 function file_browser_form_alter(&$form, FormStateInterface &$form_state) {
+  // Normal form overrides.
   if (isset($form['#form_id']) && $form['#form_id'] == 'entity_browser_browse_files_form') {
+    // Attach our library.
     $form['#attached']['library'][] = 'file_browser/view';
+
+    // Wrap actions so we can float them at the bottom of the browser.
+    $form['actions_wrap'] = [
+      '#type' => 'container',
+      '#attributes' => [
+        'class' => 'file-browser-actions',
+      ],
+      0 => $form['actions'],
+    ];
+    unset($form['actions']);
   }
 }
