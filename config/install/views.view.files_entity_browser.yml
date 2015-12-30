@@ -1,14 +1,16 @@
 langcode: en
 status: true
 dependencies:
-  module:
-    - file_browser
-    - entity_browser
-    - file
-    - user
   enforced:
     module:
       - file_browser
+  module:
+    - entity_browser
+    - file
+    - file_browser
+    - user
+_core:
+  default_config_hash: P8aH7uFAe1ktHnG6efhxhQiKy8BELlsCsstb6WphB1Q
 id: files_entity_browser
 label: 'Files entity browser'
 module: views
@@ -134,20 +136,20 @@ display:
           hide_alter_empty: true
           entity_type: file
           plugin_id: entity_browser_select
-        uri:
-          id: uri
+        file_browser_preview:
+          id: file_browser_preview
           table: file_managed
-          field: uri
+          field: file_browser_preview
           relationship: none
           group_type: group
           admin_label: ''
           label: ''
           exclude: false
           alter:
-            alter_text: true
-            text: '<img src="{{ file_url(uri) }}"></img>'
+            alter_text: false
+            text: ''
             make_link: false
-            path: fuck
+            path: ''
             absolute: false
             external: false
             replace_spaces: false
@@ -182,24 +184,8 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: file_uri
-          settings:
-            link_to_file: false
-            file_download_path: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
           entity_type: file
-          entity_field: uri
-          plugin_id: field
+          plugin_id: file_browser_preview
         filename:
           id: filename
           table: file_managed
@@ -490,9 +476,11 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - 'url.query_args.pagers:0'
+        - url.query_args
         - user.permissions
       cacheable: false
+      max-age: -1
+      tags: {  }
   entity_browser_1:
     display_plugin: entity_browser
     id: entity_browser_1
@@ -507,6 +495,8 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - 'url.query_args.pagers:0'
+        - url.query_args
         - user.permissions
       cacheable: false
+      max-age: -1
+      tags: {  }
