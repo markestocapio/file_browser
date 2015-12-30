@@ -31,6 +31,10 @@ function file_browser_form_alter(&$form, FormStateInterface &$form_state) {
     // Attach our library.
     $form['#attached']['library'][] = 'file_browser/view';
 
+    // Style the submit button.
+    $form['actions']['submit']['#value'] = t('Select Files');
+    $form['actions']['submit']['#attributes']['class'][] = 'button--primary';
+
     // Wrap actions so we can float them at the bottom of the browser.
     $form['actions_wrap'] = [
       '#type' => 'container',
