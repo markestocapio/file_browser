@@ -31,7 +31,7 @@ content:
     weight: 7
     settings:
       entity_browser: browse_files
-      field_widget_display: label
+      field_widget_display: thumbnail
       field_widget_display_settings:
         image_style: medium
     third_party_settings: {  }
