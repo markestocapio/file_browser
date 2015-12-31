@@ -446,22 +446,62 @@ display:
           entity_type: file
           entity_field: filesize
           plugin_id: numeric
+        filemime:
+          id: filemime
+          table: file_managed
+          field: filemime
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: filemime_op
+            label: 'File MIME type'
+            description: ''
+            use_operator: false
+            operator: filemime_op
+            identifier: filemime
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: file
+          entity_field: filemime
+          plugin_id: string
       sorts:
         created:
           id: created
           table: file_managed
           field: created
-          order: DESC
-          entity_type: file
-          entity_field: created
-          plugin_id: date
           relationship: none
           group_type: group
           admin_label: ''
-          exposed: false
+          order: DESC
+          exposed: true
           expose:
-            label: ''
+            label: 'Created date'
           granularity: second
+          entity_type: file
+          entity_field: created
+          plugin_id: date
       header: {  }
       footer: {  }
       empty: {  }
@@ -471,12 +511,15 @@ display:
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
       css_class: grid
+      use_ajax: false
     cache_metadata:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - user.permissions
       cacheable: false
       max-age: -1
@@ -496,6 +539,8 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - user.permissions
       cacheable: false
       max-age: -1

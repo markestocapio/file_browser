@@ -69,9 +69,19 @@
   float: right;
 }
 
+.entity-browser-browse-files-form {
+  position: relative;
+  padding-bottom: 50px;
+}
+
 /* Remove border above tabs. */
 .entity-browser-browse-files-form .is-collapse-enabled .tabs:before, .entity-browser-browse-files-form .is-horizontal .tabs:before {
   background-color: transparent;
+}
+
+input[type="submit"][name="filter"] {
+  margin-left: 10px;
+  margin-top: 30px;
 }
 
 /* Float submit button over browser. */
@@ -83,16 +93,6 @@
   width: 100%;
   padding: 10px 0 10px 0;
   z-index: 100;
-}
-
-.entity-browser-browse-files-form {
-  position: relative;
-  padding-bottom: 50px;
-}
-
-/* The filter submit button should not be inline. */
-input[type="submit"][name="filter"] {
-  display: block;
 }
 
 .layout-container {
