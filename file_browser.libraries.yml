@@ -1,3 +1,9 @@
+iframe:
+  version: VERSION
+  css:
+    theme:
+      css/file_browser.iframe.css: {}
+
 view:
   version: VERSION
   js:

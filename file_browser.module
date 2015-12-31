@@ -46,3 +46,12 @@ function file_browser_form_alter(&$form, FormStateInterface &$form_state) {
     unset($form['actions']);
   }
 }
+
+/**
+ * Implements hook_preprocess_details().
+ */
+function file_browser_preprocess_details(&$variables) {
+  if ($variables['element']['#id'] == 'edit-field-file-browser-reference') {
+    $variables['#attached']['library'][] = 'file_browser/iframe';
+  }
+}
