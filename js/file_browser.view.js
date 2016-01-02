@@ -18,7 +18,7 @@
         });
       });
 
-      $('.grid-item').on('click', function() {
+      $('.grid-item').once('bind-click-event').click(function() {
         var input = $(this).find('.views-field-entity-browser-select input');
         input.prop('checked', !input.prop('checked'));
         if (input.prop('checked')) {
