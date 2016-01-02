@@ -84,17 +84,6 @@ input[type="submit"][name="filter"] {
   margin-top: 30px;
 }
 
-/* Float submit button over browser. */
-.file-browser-actions {
-  position: absolute;
-  bottom: 0;
-  background: white;
-  height: 30px;
-  width: 100%;
-  padding: 10px 0 10px 0;
-  z-index: 100;
-}
-
 .layout-container {
   margin: 0;
 }
