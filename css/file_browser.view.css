@@ -87,3 +87,8 @@ input[type="submit"][name="filter"] {
 .layout-container {
   margin: 0;
 }
+
+/* Prevent overlap from the external filters. */
+.view-content {
+  position: relative;
+}
