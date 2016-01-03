@@ -5,13 +5,12 @@
 /* Generic styles */
 
 .grid {
-  padding-bottom: 50px;
+  overflow-y: scroll;
 }
 
 .grid .pager {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+  position: relative;
+  display: inline-block;
 }
 
 .grid-item {
@@ -91,4 +90,5 @@ input[type="submit"][name="filter"] {
 /* Prevent overlap from the external filters. */
 .view-content {
   position: relative;
+  display: inline-block;
 }
