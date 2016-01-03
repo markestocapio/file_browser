@@ -9,8 +9,6 @@ dependencies:
     - file
     - file_browser
     - user
-_core:
-  default_config_hash: P8aH7uFAe1ktHnG6efhxhQiKy8BELlsCsstb6WphB1Q
 id: files_entity_browser
 label: 'Files entity browser'
 module: views
@@ -212,7 +210,7 @@ display:
             suffix: ''
             target: ''
             nl2br: false
-            max_length: 0
+            max_length: 15
             word_boundary: true
             ellipsis: true
             more_link: false
@@ -326,7 +324,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"grid-item-info\">\n<div class=\"grid-item-info-left\">{{ filename }}</div>\n<div class=\"grid-item-info-right\">{{ filesize }}</div>\n</div>"
+            text: "<div class=\"grid-item-info\">\n<div class=\"grid-item-info-left\" title=\"{{ filename }}\">{{ filename }}</div>\n<div class=\"grid-item-info-right\">{{ filesize }}</div>\n</div>"
             make_link: false
             path: ''
             absolute: false
@@ -502,6 +500,34 @@ display:
           entity_type: file
           entity_field: created
           plugin_id: date
+        filesize:
+          id: filesize
+          table: file_managed
+          field: filesize
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: true
+          expose:
+            label: 'File size'
+          entity_type: file
+          entity_field: filesize
+          plugin_id: standard
+        filename:
+          id: filename
+          table: file_managed
+          field: filename
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: true
+          expose:
+            label: Filename
+          entity_type: file
+          entity_field: filename
+          plugin_id: standard
       header: {  }
       footer: {  }
       empty: {  }
@@ -510,8 +536,8 @@ display:
       display_extenders: {  }
       field_langcode: '***LANGUAGE_language_content***'
       field_langcode_add_to_query: null
-      css_class: grid
-      use_ajax: false
+      css_class: ''
+      use_ajax: true
     cache_metadata:
       contexts:
         - 'languages:language_content'

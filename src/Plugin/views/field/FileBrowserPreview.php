@@ -41,7 +41,8 @@ class FileBrowserPreview extends FieldPluginBase {
       // Render the original image, Masonry takes care of scaling.
       $build = [
         '#theme' => 'image_formatter',
-        '#item' => $item
+        '#item' => $item,
+        '#image_style' => 'file_entity_browser_thumbnail'
       ];
     }
     // Use a placeholder image for now.

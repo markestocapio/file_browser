@@ -10,8 +10,8 @@
    */
   Drupal.behaviors.FileBrowserView = {
     attach: function (context) {
-      $('.grid').imagesLoaded(function() {
-        $('.grid').masonry({
+      $('.view-content').imagesLoaded(function() {
+        $('.view-content').masonry({
           itemSelector: '.grid-item',
           columnWidth: 350,
           gutter: 5

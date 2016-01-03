@@ -4,23 +4,24 @@
 
 /* Generic styles */
 
-.grid {
-  overflow-y: scroll;
-}
-
-.grid .pager {
-  position: relative;
-  display: inline-block;
+.pager {
+  padding: 20px;
 }
 
 .grid-item {
   width: 350px;
   display: block;
   text-align: center;
+  border: 2px solid #b8b8b8;
+  transition: .2s;
+}
+
+.grid-item.checked {
+  border: 2px solid #37802f;
 }
 
 .grid-item img {
-  width: 350px;
+  vertical-align: bottom;
 }
 
 .grid-item img::selection {
@@ -50,8 +51,9 @@
 
 .grid-item-info {
   position: absolute;
+  z-index: 1;
   width: 100%;
-  bottom: 5px;
+  bottom: 0;
   background-color: rgba(0,0,0,.5);
 }
 
@@ -62,6 +64,11 @@
 
 .grid-item-info-left {
   float: left;
+  text-align: left;
+  width: 175px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .grid-item-info-right {
@@ -87,8 +94,12 @@ input[type="submit"][name="filter"] {
   margin: 0;
 }
 
-/* Prevent overlap from the external filters. */
-.view-content {
-  position: relative;
-  display: inline-block;
+.file-browser-actions {
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+  padding: 10px;
+  width: 100%;
+  background: white;
+  border-top: 1px solid #b8b8b8;
 }
