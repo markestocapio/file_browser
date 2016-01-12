@@ -16,5 +16,5 @@ type_settings:
     - 'image:image'
   entity_browser: browse_files
   entity_browser_settings:
-    display_review: true
+    display_review: false
 icon_uuid: null
