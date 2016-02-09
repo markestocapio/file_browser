@@ -3,12 +3,14 @@ status: true
 dependencies:
   config:
     - field.field.node.file_browser.body
-    - field.field.node.file_browser.field_file_browser_reference
+    - field.field.node.file_browser.field_file_browser_image
     - node.type.file_browser
   module:
-    - file_browser
+    - image
     - text
     - user
+_core:
+  default_config_hash: '-YwiZ90Nldz62AXVn6bS3ONKVpHFeoK_Ujm8Pq1ZU4w'
 id: node.file_browser.default
 targetEntityType: node
 bundle: file_browser
@@ -20,17 +22,17 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
-  field_file_browser_reference:
-    type: entity_reference_image
-    weight: 1
+  field_file_browser_image:
+    weight: 4
     label: above
     settings:
-      image_style: large
-      view_mode: default
-      link: false
+      image_style: ''
+      image_link: ''
     third_party_settings: {  }
+    type: image
   links:
     weight: 2
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  langcode: true
