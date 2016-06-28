@@ -269,27 +269,29 @@ class FileBrowser extends EntityReference {
     $ids = empty($values['target_id']) ? [] : explode(' ', trim($values['target_id']));
     $return = [];
     foreach ($ids as $id) {
-      $item_values = [
-        'target_id' => $id,
-        '_weight' => $values['current'][$id]['_weight'],
-      ];
-      if ($this->fieldDefinition->getType() == 'file') {
-        if (isset($values['current'][$id]['meta']['description'])) {
-          $item_values['description'] = $values['current'][$id]['meta']['description'];
+      if (is_array($values['current']) && isset($values['current'][$id])) {
+        $item_values = [
+          'target_id' => $id,
+          '_weight' => $values['current'][$id]['_weight'],
+        ];
+        if ($this->fieldDefinition->getType() == 'file') {
+          if (isset($values['current'][$id]['meta']['description'])) {
+            $item_values['description'] = $values['current'][$id]['meta']['description'];
+          }
+          if ($this->fieldDefinition->getSetting('display_field') && isset($values['current'][$id]['meta']['display_field'])) {
+            $item_values['display'] = $values['current'][$id]['meta']['display_field'];
+          }
         }
-        if ($this->fieldDefinition->getSetting('display_field') && isset($values['current'][$id]['meta']['display_field'])) {
-          $item_values['display'] = $values['current'][$id]['meta']['display_field'];
+        if ($this->fieldDefinition->getType() == 'image') {
+          if (isset($values['current'][$id]['meta']['alt'])) {
+            $item_values['alt'] = $values['current'][$id]['meta']['alt'];
+          }
+          if (isset($values['current'][$id]['meta']['title'])) {
+            $item_values['title'] = $values['current'][$id]['meta']['title'];
+          }
         }
+        $return[] = $item_values;
       }
-      if ($this->fieldDefinition->getType() == 'image') {
-        if (isset($values['current'][$id]['meta']['alt'])) {
-          $item_values['alt'] = $values['current'][$id]['meta']['alt'];
-        }
-        if (isset($values['current'][$id]['meta']['title'])) {
-          $item_values['title'] = $values['current'][$id]['meta']['title'];
-        }
-      }
-      $return[] = $item_values;
     }
 
     // Return ourself as the structure doesn't match the default.
