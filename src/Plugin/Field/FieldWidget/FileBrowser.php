@@ -18,6 +18,7 @@ use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 use Drupal\entity_browser\Plugin\Field\FieldWidget\EntityReference;
+use Symfony\Component\Validator\ConstraintViolationListInterface;
 
 /**
  * Entity browser file widget.
@@ -300,6 +301,17 @@ class FileBrowser extends EntityReference {
     });
 
     return array_values($return);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function flagErrors(FieldItemListInterface $items, ConstraintViolationListInterface $violations, array $form, FormStateInterface $form_state) {
+    // Never flag validation errors for the remove button.
+    $clicked_button = $form_state->getTriggeringElement()['#value'];
+    if ($clicked_button !== $this->t('Remove')) {
+      parent::flagErrors($items, $violations, $form, $form_state);
+    }
   }
 
 }
