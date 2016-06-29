@@ -16,6 +16,7 @@ namespace Drupal\file_browser\Plugin\Field\FieldWidget;
 use Drupal\Component\Utility\SortArray;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Url;
 use Drupal\entity_browser\Plugin\Field\FieldWidget\EntityReference;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
@@ -309,7 +310,7 @@ class FileBrowser extends EntityReference {
   public function flagErrors(FieldItemListInterface $items, ConstraintViolationListInterface $violations, array $form, FormStateInterface $form_state) {
     // Never flag validation errors for the remove button.
     $clicked_button = $form_state->getTriggeringElement()['#value'];
-    if ($clicked_button !== $this->t('Remove')) {
+    if (!($clicked_button instanceof TranslatableMarkup) || $clicked_button->getUntranslatedString() !== 'Remove') {
       parent::flagErrors($items, $violations, $form, $form_state);
     }
   }
