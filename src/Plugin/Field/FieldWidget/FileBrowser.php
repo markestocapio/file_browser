@@ -89,7 +89,7 @@ class FileBrowser extends EntityReference {
       return [t('No entity browser selected.')];
     }
     else {
-      $browser = $this->entityManager->getStorage('entity_browser')
+      $browser = $this->entityTypeManager->getStorage('entity_browser')
         ->load($entity_browser_id);
       $summary[] = t('Entity browser: @browser', ['@browser' => $browser->label()]);
     }
