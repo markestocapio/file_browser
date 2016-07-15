@@ -39,18 +39,6 @@
           $(this).removeClass('checked');
         }
       });
-
-      $(context).find('.entities-list').hide();
-      $('.file-browser-show-selection').on('click', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        $('.entities-list').toggle();
-        if($('.entities-list').css('display') == 'none' ) {
-          $('.file-browser-show-selection').val(Drupal.t('Show current selection'));
-        } else {
-          $('.file-browser-show-selection').val(Drupal.t('Hide current selection'));
-        }
-      });
     }
   };
 

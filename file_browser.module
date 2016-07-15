@@ -33,10 +33,6 @@ function file_browser_form_alter(&$form, FormStateInterface &$form_state) {
       $form['#attached']['library'][] = 'file_browser/view';
       $form['#attached']['library'][] = 'file_browser/dropzone_css';
 
-      // Style the submit button.
-      $form['actions']['submit']['#value'] = t('Select Files');
-      $form['actions']['submit']['#attributes']['class'][] = 'entity-browser-modal-target';
-
       // Wrap actions so we can float them at the bottom of the browser.
       $form['actions_wrap'] = [
         '#type' => 'container',
@@ -49,50 +45,12 @@ function file_browser_form_alter(&$form, FormStateInterface &$form_state) {
 
       if (!empty($form['selection_display'])) {
         $form['selection_display']['#weight'] = 100;
-        $form['selection_display']['use_selected']['#value'] = t('Select Files');
         $form['actions_wrap'][] = $form['selection_display'];
         unset($form['selection_display']);
-        $form['actions_wrap'][0]['submit']['#value'] = t('Add files to current selection');
-        $form['actions_wrap'][0]['show_selection'] = [
-          '#type' => 'button',
-          '#attributes' => ['class' => ['file-browser-show-selection']],
-          '#value' => t('Show current selection'),
-          '#executes_submit_callback' => FALSE,
-        ];
       }
 
       // Add a class for generic styling.
       $form['#attributes']['class'][] = 'file-browser-form';
-    }
-  }
-}
-
-/**
- * Implements hook_form_FORM_ID_alter().
- */
-function file_browser_form_entity_embed_dialog_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  if ($embed_button = $form_state->get('embed_button')) {
-    // Check that we're using file_browser.
-    if ($embed_button->getTypePlugin()->getConfigurationValue('entity_browser') == 'browse_files') {
-      // Override the first step of the form, if we're using file_browser.
-      if ($form['actions']['save_modal']['#ajax']['callback'] == '::submitSelectStep') {
-        // Add a library which handles our special "Select Files" button.
-        $form['#attached']['library'][] = 'file_browser/entity_embed';
-
-        // Visually hide the "Next" button.
-        $form['actions']['save_modal']['#attributes']['class'][] = 'visually-hidden';
-        $form['actions']['save_modal']['#weight'] = 1;
-
-        // Add a button that matches our normal UX, which clicks the hidden button
-        // within the modal's iFrame.
-        $form['actions']['save_modal_alt'] = [
-          '#type' => 'submit',
-          '#value' => t('Select Files'),
-          '#attributes' => ['class' => ['entity-browser-modal-submit']],
-          '#button_type' => 'primary',
-          '#weight' => 0,
-        ];
-      }
     }
   }
 }
