@@ -22,6 +22,9 @@ use Drupal\entity_browser\Plugin\Field\FieldWidget\FileBrowserWidget;
  */
 class FileBrowser extends FileBrowserWidget {
 
+  /**
+   * {@inheritdoc}
+   */
   public static function isApplicable(FieldDefinitionInterface $field_definition) {
     // If the bundle this field belongs to uses File Browser in any existing
     // form display, we're still applicable. This lets users who are already
