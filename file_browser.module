@@ -39,9 +39,17 @@ function file_browser_form_alter(&$form, FormStateInterface &$form_state) {
         '#attributes' => [
           'class' => 'file-browser-actions',
         ],
-        0 => $form['actions'],
       ];
-      unset($form['actions']);
+
+      if (isset($form['actions'])) {
+        $form['actions_wrap'][] = $form['actions'];
+        unset($form['actions']);
+      }
+
+      if (isset($form['widget']) && isset($form['widget']['actions'])) {
+        $form['actions_wrap'][] = $form['widget']['actions'];
+        unset($form['widget']['actions']);
+      }
 
       if (!empty($form['selection_display'])) {
         $form['selection_display']['#weight'] = 100;
