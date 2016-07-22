@@ -31,11 +31,26 @@ class ImageEmbedBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function blockForm($form, FormStateInterface $form_state) {
-    $files = $form_state->getValue([
+    $entities = $form_state->getValue([
+      'settings',
+      'selection',
+      'fids',
+      'entities'
+    ], []);
+    $table = $form_state->getValue([
       'settings',
       'selection',
       'table',
-    ], $this->configuration['files']);
+    ], []);
+    $files = [];
+    foreach ($entities as $entity) {
+      $settings = isset($table[$entity->id()]) ? $table[$entity->id()] : [];
+      $settings['fid'] = $entity->id();
+      $files[] = $settings;
+    }
+    if (empty($files)) {
+      $files = $this->configuration['files'];
+    }
 
     $form['selection'] = $this->browserForm($files);
 
