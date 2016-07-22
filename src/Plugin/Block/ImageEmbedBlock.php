@@ -2,6 +2,7 @@
 
 namespace Drupal\file_browser\Plugin\Block;
 
+use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\file\Entity\File;
@@ -172,7 +173,10 @@ class ImageEmbedBlock extends BlockBase {
    * AJAX callback: Re-renders the Entity Browser button/table.
    */
   public static function updateCallback(array &$form, FormStateInterface $form_state) {
-    return $form['settings']['selection'];
+    $trigger = $form_state->getTriggeringElement();
+    $parents = array_slice($trigger['#array_parents'], 0, -2);
+    $selection = NestedArray::getValue($form, $parents);
+    return $selection;
   }
 
   /**
