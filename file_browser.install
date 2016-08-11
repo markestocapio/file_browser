@@ -26,6 +26,7 @@ function file_browser_install() {
  * Implements hook_uninstall().
  */
 function file_browser_uninstall() {
+  Drupal::configFactory()->getEditable('image.style.file_entity_browser_small')->delete();
   Drupal::configFactory()->getEditable('image.style.file_entity_browser_thumbnail')->delete();
   Drupal::configFactory()->getEditable('embed.button.file_browser')->delete();
 }
