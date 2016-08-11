@@ -9,8 +9,8 @@ dependencies:
     - file
     - file_browser
     - user
-id: files_entity_browser
-label: 'Files entity browser'
+id: file_entity_browser
+label: 'File Entity Browser'
 module: views
 description: ''
 tag: ''
