@@ -74,3 +74,25 @@ https://github.com/desandro/masonry/releases and place it in /libraries'
 
   return $requirements;
 }
+
+/**
+ * Updates entity browser configuration to remove outdated values.
+ */
+function file_browser_update_8001() {
+  /** @var \Drupal\Core\Config\ConfigFactoryInterface $config_factory */
+  $config_factory = \Drupal::service('config.factory');
+  $list = $config_factory->listAll('entity_browser.browser');
+
+  foreach (['entity_browser.browser.browse_files', 'entity_browser.browser.browse_files_modal'] as $name) {
+    if (in_array($name, $list, TRUE)) {
+      $entity_browser = $config_factory->getEditable($name);
+      if ($text = $entity_browser->get('display_configuration.widget_ids')) {
+        $entity_browser->clear('display_configuration.widget_ids');
+      }
+      if ($name === 'entity_browser.browser.browse_files_modal') {
+        $entity_browser->set('display_configuration.auto_open', FALSE);
+      }
+      $entity_browser->save();
+    }
+  }
+}
