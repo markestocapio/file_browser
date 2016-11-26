@@ -8,8 +8,8 @@ name: browse_files
 label: 'Browser for files'
 display: iframe
 display_configuration:
-  width: 100%
-  height: 768
+  width: '100%'
+  height: '768'
   link_text: 'Select files'
   auto_open: true
 selection_display: multi_step_display
@@ -18,7 +18,7 @@ selection_display_configuration:
   display: thumbnail
   display_settings:
     image_style: file_entity_browser_small
-  selection_hidden: 1
+  selection_hidden: true
 widget_selector: tabs
 widget_selector_configuration: {  }
 widgets:

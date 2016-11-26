@@ -8,8 +8,8 @@ name: browse_files_modal
 label: 'Browser for files (modal)'
 display: modal
 display_configuration:
-  width: 1100
-  height: 650
+  width: '1100'
+  height: '650'
   link_text: 'Select files'
   auto_open: false
 selection_display: multi_step_display
@@ -18,7 +18,7 @@ selection_display_configuration:
   display: thumbnail
   display_settings:
     image_style: file_entity_browser_small
-  selection_hidden: 1
+  selection_hidden: true
 widget_selector: tabs
 widget_selector_configuration: {  }
 widgets:
