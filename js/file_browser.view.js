@@ -11,7 +11,7 @@
 
   Drupal.behaviors.FileBrowserView = {
     attach: function (context) {
-      var $view = $('.view-content');
+      var $view = $('.grid-item').parent();
       $view.prepend('<div class="grid-sizer"></div><div class="gutter-sizer"></div>').once();
 
       // Indicate that images are loading.
