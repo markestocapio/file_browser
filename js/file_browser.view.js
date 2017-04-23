@@ -60,7 +60,7 @@
           if (count > 0) {
             var text = Drupal.formatPlural(count, 'Selected one time', 'Selected @count times');
             var $counter = $('<div class="file-browser-file-counter"></div>').text(text);
-            $('[name="entity_browser_select[file:' + id + ']').closest('.grid-item').find('.grid-item-info').prepend($counter);
+            $('[name="entity_browser_select[file:' + id + ']"]').closest('.grid-item').find('.grid-item-info').prepend($counter);
           }
         }
       }

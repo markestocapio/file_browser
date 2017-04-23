@@ -29,7 +29,7 @@ function file_browser_form_alter(&$form, FormStateInterface &$form_state) {
   if (isset($form['#form_id'])) {
     if ($form['#form_id'] == 'entity_browser_browse_files_form' ||
         $form['#form_id'] == 'entity_browser_browse_files_modal_form') {
-      file_browser_attatch_file_browser_to_form($form);
+      file_browser_attach_file_browser_to_form($form);
     }
   }
 }
@@ -40,7 +40,7 @@ function file_browser_form_alter(&$form, FormStateInterface &$form_state) {
  * @param $form
  *   Nested array of form elements that comprise the form.
  */
-function file_browser_attatch_file_browser_to_form(&$form) {
+function file_browser_attach_file_browser_to_form(&$form) {
   // Attach our library.
   $form['#attached']['library'][] = 'file_browser/view';
   $form['#attached']['library'][] = 'file_browser/dropzone_css';
