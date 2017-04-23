@@ -55,7 +55,7 @@ function file_browser_requirements($phase) {
     $requirements['imagesloaded'] = array(
       'title' => t('imagesLoaded library missing'),
       'description' => t(
-'File Browser requires the imagesLoaded library. Download the newest release
+    'File Browser requires the imagesLoaded library. Download the newest release
 from https://github.com/desandro/imagesloaded releases and place it in /libraries'
       ),
       'severity' => REQUIREMENT_ERROR,
@@ -66,7 +66,7 @@ from https://github.com/desandro/imagesloaded releases and place it in /librarie
     $requirements['masonry'] = array(
       'title' => t('Dropzone library missing'),
       'description' => t(
-'File Browser requires the Masonry library. Download the newest release from
+    'File Browser requires the Masonry library. Download the newest release from
 https://github.com/desandro/masonry/releases and place it in /libraries'
       ),
       'severity' => REQUIREMENT_ERROR,
