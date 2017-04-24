@@ -65,6 +65,8 @@ class FileBrowserPreview extends FieldPluginBase {
   /**
    * {@inheritdoc}
    */
-  public function clickSortable() { return FALSE; }
+  public function clickSortable() {
+    return FALSE;
+  }
 
 }

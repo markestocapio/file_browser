@@ -1,6 +1,7 @@
 /**
  * @file file_browser.view.js
  */
+
 (function ($, Drupal) {
 
   "use strict";
@@ -39,7 +40,7 @@
       });
 
       // Adjusts the body padding to account for out fixed actions bar.
-      function adjustBodyPadding () {
+      function adjustBodyPadding() {
         setTimeout(function () {
           $('body').css('padding-bottom', $('.file-browser-actions').outerHeight() + 'px');
         }, 2000);
@@ -51,7 +52,7 @@
           fileCounter: {}
         };
 
-      function renderFileCounter () {
+      function renderFileCounter() {
         $('.file-browser-file-counter').each(function () {
           $(this).remove();
         });
