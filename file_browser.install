@@ -196,3 +196,30 @@ function file_browser_update_8003() {
     $view->save();
   }
 }
+
+/**
+ * Updates alpha1 users to use the correct View machine name.
+ */
+function file_browser_update_8004() {
+  /** @var \Drupal\Core\Config\ConfigFactoryInterface $config_factory */
+  $config_factory = \Drupal::service('config.factory');
+  if (empty($config_factory->get('views.view.file_entity_browser')->getRawData()) && !empty($config_factory->get('views.view.files_entity_browser')->getRawData())) {
+    $config_factory->rename('views.view.files_entity_browser', 'views.view.file_entity_browser');
+    $view = $config_factory->getEditable('views.view.file_entity_browser');
+    $view->set('id', 'file_entity_browser');
+    $view->save();
+
+    // Re-run file_browser_update_8003(), which never ran on the old view.
+    file_browser_update_8003();
+
+    $list = $config_factory->listAll('entity_browser.browser');
+
+    foreach (['entity_browser.browser.browse_files', 'entity_browser.browser.browse_files_modal'] as $name) {
+      if (in_array($name, $list, TRUE)) {
+        $entity_browser = $config_factory->getEditable($name);
+        $entity_browser->set('widgets.a4ad947c-9669-497c-9988-24351955a02f.settings.view', 'file_entity_browser');
+        $entity_browser->save();
+      }
+    }
+  }
+}
