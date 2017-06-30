@@ -39,6 +39,17 @@
         $view.find('.ajax-progress').remove();
       });
 
+      $('.grid-item').once('bind-click-event').click(function () {
+        var input = $(this).find('.views-field-entity-browser-select input');
+        input.prop('checked', !input.prop('checked'));
+        if (input.prop('checked')) {
+          $(this).addClass('checked');
+        }
+        else {
+          $(this).removeClass('checked');
+        }
+      });
+
       // Adjusts the body padding to account for out fixed actions bar.
       function adjustBodyPadding() {
         setTimeout(function () {
