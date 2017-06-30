@@ -65,7 +65,7 @@ from https://github.com/desandro/imagesloaded releases and place it in /librarie
 
   if (!file_exists($masonry_path)) {
     $requirements['masonry'] = array(
-      'title' => t('Dropzone library missing'),
+      'title' => t('Masonry library missing'),
       'description' => t(
     'File Browser requires the Masonry library. Download the newest release from
 https://github.com/desandro/masonry/releases and place it in /libraries'
