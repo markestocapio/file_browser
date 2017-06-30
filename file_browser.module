@@ -44,7 +44,7 @@ function file_browser_attach_file_browser_to_form(&$form) {
 
   if (isset($form['selection_display'])) {
     $form['selection_display']['#type'] = 'container';
-    $form['selection_display']['#attributes']['class'] = 'file-browser-actions';
+    $form['selection_display']['#attributes']['class'] = ['file-browser-actions'];
   }
 
   // Add a class for generic styling.
