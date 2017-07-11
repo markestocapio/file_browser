@@ -48,9 +48,9 @@ class FileBrowserPreview extends FieldPluginBase {
       $path = drupal_get_path('module', 'file_browser');
       $build = [
         '#theme' => 'image',
-        '#attributes' => array(
+        '#attributes' => [
           'src' => base_path() . $path . '/images/document_placeholder.svg',
-        ),
+        ],
       ];
     }
 
