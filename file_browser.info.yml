@@ -17,3 +17,4 @@ dependencies:
   - views
 test_dependencies:
   - ctools:ctools
+  - coder:coder
