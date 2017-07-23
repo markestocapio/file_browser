@@ -85,17 +85,19 @@
    * auto-select and multi-step.
    */
   Drupal.behaviors.fileBrowserClickProxy = {
-    attach: function (context) {
-      $('.grid-item', context).once('bind-click-event').click(function () {
-        var input = $(this).find('.views-field-entity-browser-select input');
-        input.prop('checked', !input.prop('checked'));
-        if (input.prop('checked')) {
-          $(this).addClass('checked');
-        }
-        else {
-          $(this).removeClass('checked');
-        }
-      });
+    attach: function (context, settings) {
+      if (!settings.entity_browser_widget.auto_select) {
+        $('.grid-item', context).once('bind-click-event').click(function () {
+          var input = $(this).find('.views-field-entity-browser-select input');
+          input.prop('checked', !input.prop('checked'));
+          if (input.prop('checked')) {
+            $(this).addClass('checked');
+          }
+          else {
+            $(this).removeClass('checked');
+          }
+        });
+      }
     }
   };
 
