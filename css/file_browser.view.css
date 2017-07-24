@@ -13,33 +13,33 @@
 @media only screen and (min-width: 320px) {
   .grid-sizer,
   .grid-item {
-    width: 96%;
+    width: calc(50% - 5px);
   }
   .gutter-sizer {
-    width: 20px;
+    width: 5px;
   }
   .grid-item {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
   }
 }
 
 @media only screen and (min-width: 768px) {
   .grid-sizer,
   .grid-item {
-    width: 46%;
+    width: calc(33% - 10px);
   }
   .gutter-sizer {
-    width: 20px;
+    width: 10px;
   }
   .grid-item {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 }
 
 @media only screen and (min-width: 992px) {
   .grid-sizer,
   .grid-item {
-    width: 23%;
+    width: calc(25% - 10px);
   }
   .gutter-sizer {
     width: 10px;
@@ -53,10 +53,13 @@
 @media only screen and (min-width: 1600px) {
   .grid-sizer,
   .grid-item {
-    width: 15%;
+    width: calc(15% - 10px);
   }
   .gutter-sizer {
     width: 10px;
+  }
+  .grid-item {
+    margin-bottom: 10px;
   }
 }
 
