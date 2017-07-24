@@ -22,7 +22,7 @@ class FileBrowserPreview extends FieldPluginBase {
     $file = $this->getEntity($values);
     $build = [];
 
-    $build['image'] = $this->getFilePreview($file, '');
+    $build['image'] = $this->getFilePreview($file, 'file_entity_browser_thumbnail');
 
     $build['preview'] = [
       '#title' => $this->t('Preview'),
