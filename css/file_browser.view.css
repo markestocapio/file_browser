@@ -55,7 +55,7 @@
   display: block;
   opacity: 0;
   text-align: center;
-  background-color: white;
+  background-color: #dedede;
   overflow: hidden;
   border-radius: 2px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
@@ -123,7 +123,7 @@
   width: calc(100% - 20px);
   bottom: 0;
   background-color: #2d2d2d;
-  color: white;
+  color: #dedede;
   padding: 10px;
 }
 
@@ -239,4 +239,31 @@ input.entity-browser-show-selection {
   background-position: 0px;
   background-size: 20px;
   background-repeat: no-repeat;
+}
+
+.grid-item:hover .file-browser-preview-button {
+  opacity: 1;
+}
+
+.file-browser-preview-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: url(../images/preview.svg);
+  z-index: 2;
+  background-size: 30px;
+  background-position: 5px;
+  background-color: #2d2d2d;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  background-repeat: no-repeat;
+  color: transparent;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: opacity .2s;
+}
+
+.file-browser-preview-button + .ajax-progress {
+  display: none;
 }
