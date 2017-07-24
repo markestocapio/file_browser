@@ -18,6 +18,9 @@
   .gutter-sizer {
     width: 20px;
   }
+  .grid-item {
+    margin-bottom: 20px;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -28,6 +31,9 @@
   .gutter-sizer {
     width: 20px;
   }
+  .grid-item {
+    margin-bottom: 20px;
+  }
 }
 
 @media only screen and (min-width: 992px) {
@@ -37,6 +43,9 @@
   }
   .gutter-sizer {
     width: 10px;
+  }
+  .grid-item {
+    margin-bottom: 10px;
   }
 }
 
