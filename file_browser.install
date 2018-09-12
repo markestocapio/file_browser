@@ -120,7 +120,9 @@ function file_browser_update_8002() {
     if (in_array($name, $list, TRUE)) {
       $entity_browser = $config_factory->getEditable($name);
       $entity_browser->set('selection_display_configuration.selection_hidden', FALSE);
-      $entity_browser->set('widgets.a4ad947c-9669-497c-9988-24351955a02f.settings.auto_select', TRUE);
+      if ($entity_browser->get('widgets.a4ad947c-9669-497c-9988-24351955a02f')) {
+        $entity_browser->set('widgets.a4ad947c-9669-497c-9988-24351955a02f.settings.auto_select', TRUE);
+      }
       $entity_browser->save();
     }
   }
@@ -217,7 +219,32 @@ function file_browser_update_8004() {
     foreach (['entity_browser.browser.browse_files', 'entity_browser.browser.browse_files_modal'] as $name) {
       if (in_array($name, $list, TRUE)) {
         $entity_browser = $config_factory->getEditable($name);
-        $entity_browser->set('widgets.a4ad947c-9669-497c-9988-24351955a02f.settings.view', 'file_entity_browser');
+        if ($entity_browser->get('widgets.a4ad947c-9669-497c-9988-24351955a02f')) {
+          $entity_browser->set('widgets.a4ad947c-9669-497c-9988-24351955a02f.settings.view', 'file_entity_browser');
+        }
+        $entity_browser->save();
+      }
+    }
+  }
+}
+
+/**
+ * Fix widget configuration if it was broken by a previous update.
+ */
+function file_browser_update_8005() {
+  /** @var \Drupal\Core\Config\ConfigFactoryInterface $config_factory */
+  $config_factory = \Drupal::service('config.factory');
+  $list = $config_factory->listAll('entity_browser.browser');
+
+  $default_uuid = 'a4ad947c-9669-497c-9988-24351955a02f';
+
+  foreach (['entity_browser.browser.browse_files', 'entity_browser.browser.browse_files_modal'] as $name) {
+    if (in_array($name, $list, TRUE)) {
+      $entity_browser = $config_factory->getEditable($name);
+      $widgets = $entity_browser->get('widgets');
+      // If the UUID exists but has no plugin ID, it was added accidentally.
+      if (isset($widgets[$default_uuid]) && !isset($widgets[$default_uuid]['id'])) {
+        $entity_browser->clear("widgets.$default_uuid");
         $entity_browser->save();
       }
     }
