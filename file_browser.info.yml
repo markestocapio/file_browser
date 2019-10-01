@@ -16,5 +16,4 @@ dependencies:
   - drupal:text
   - drupal:views
 test_dependencies:
-  - ctools:ctools
   - coder:coder
