@@ -78,7 +78,7 @@ https://github.com/desandro/masonry/releases and place it in /libraries'
 
   // Prevent installation if the webserver cannot write to "public://" .
   $public_path = \Drupal::service('file_system')->realpath('public://');
-  if (!\Drupal::isConfigSyncing() && !is_writable($public_path)) {
+  if ($public_path !== FALSE && !\Drupal::isConfigSyncing() && !is_writable($public_path)) {
     $requirements['public_files_not_writable'] = [
       'title' => t('Public files directory not writable'),
       'description' => t('The webserver needs to be able to write to the public files directory (public://). Please check your server configuration and try again.'),
